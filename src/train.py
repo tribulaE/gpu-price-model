@@ -50,6 +50,25 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
 
      return model
 
+def sample_predictions(model, X_test, y_test):
+     """
+     Picks a few rows from the test dataset, runs predictions automatically,
+     prints actual price vs predicted price
+
+     """
+
+     #  Picking first 5 rows for demo
+     X_sample = X_test.head()
+     y_sample = y_test.head()
+
+     #  Using trained model
+     y_pred = model.predict(X_sample)
+
+     print("\n == PRICE PREDICTIONS ==")
+
+    #  Loop through real prices and predicted prices , comparing with the funciton zip()
+     for true_price, pred_price in zip(y_sample, y_pred):
+          print(f"Actual: ${true_price:.2f} | Predicted: ${pred_price:.2f}")
 
 
 
@@ -82,6 +101,7 @@ def main():
 
     # Traing the model with the training data in function above
     model = train_and_evaluate(X_train, X_test, y_train, y_test)
+    sample_predictions(model, X_test, y_test)
 
 if __name__ == "__main__":
     main()
