@@ -1,7 +1,8 @@
 from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
-
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error
 
 
 # Path to the CSV file 
@@ -29,6 +30,29 @@ def preprocess(df):
 
         return X, y
 
+def train_and_evaluate(X_train, X_test, y_train, y_test):
+     """
+     Training a RandomForstRegressor and printing metrics for it
+     """
+    # Creating the ML model
+     model = RandomForestRegressor(random_state=42)
+
+    #  Train the model / GPU features and used prices
+     model.fit(X_train, y_train)
+
+     y_pred = model.predict(X_test)
+     r2 = model.score(X_test, y_test)
+     mae = mean_absolute_error(y_test, y_pred)
+
+     print("\n=== MODEL EVALUATION RESULTS ===")
+     print(f"R2 on test set: {r2:.3}")
+     print(f"Mean Absolute Error: ${mae:.2f}")
+
+     return model
+
+
+
+
 
 def main():
 
@@ -55,6 +79,9 @@ def main():
     print("\nPreprocessing complete.")
     print("Train size:", X_train.shape)
     print("Test size:", X_test.shape)
+
+    # Traing the model with the training data in function above
+    model = train_and_evaluate(X_train, X_test, y_train, y_test)
 
 if __name__ == "__main__":
     main()
