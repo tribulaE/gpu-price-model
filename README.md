@@ -1,4 +1,4 @@
-<!-- GPU PRICE MODEL -->
+## Progress
 
 Progess 1
 - Project structure set up
@@ -18,13 +18,15 @@ Progess 4
 - Used the for loop and zip to loop through both lists of true_price and pred_price at the same time
 
 
-<!-- Overview Summary -->
+## Overview Summary 
 This is a simple machine learning project that predicts used GPU prices based on 
 - GPU model name
 - VRAM capacity
 - Age in years
 
-<!-- How it works -->
+## How It Works
+
+
 - Loaded the GPU dataset with pandas
 - Encoded GPU names into numeric features
 - Trained a RandomForest regressionn model on GPU features
