@@ -17,3 +17,16 @@ Progess 4
 - Comparing predictions vs the actual price of a GPU
 - Used the for loop and zip to loop through both lists of true_price and pred_price at the same time
 
+
+<!-- Overview Summary -->
+This is a simple machine learning project that predicts used GPU prices based on 
+- GPU model name
+- VRAM capacity
+- Age in years
+
+<!-- How it works -->
+- Loaded the GPU dataset with pandas
+- Encoded GPU names into numeric features
+- Trained a RandomForest regressionn model on GPU features
+- Evalute accuracy using R2 and MAE
+- Compared predicted prices to test samples
